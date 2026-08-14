@@ -1,5 +1,5 @@
 /**
- * Centralized Script & Tracking Engine
+ * Centralized Script & Tracking Engine (Mobile UX Optimized)
  * Activity: Painting, Modern Decor & Gypsum Board - Riyadh
  * Client Ad Phone: 0557482300
  */
@@ -13,7 +13,7 @@
   const CLIENT_PHONE = '0557482300';
   const CLIENT_INT_PHONE = '966557482300';
   
-  const GOOGLE_ADS_ID = ''; // Example: 'AW-1234567890'
+  const GOOGLE_ADS_ID = ''; 
   const CONVERSION_LABEL_CALL = ''; 
   const CONVERSION_LABEL_WHATSAPP = ''; 
   const CONVERSION_LABEL_FORM = ''; 
@@ -41,7 +41,7 @@
 
   document.addEventListener('DOMContentLoaded', () => {
     
-    // 1. Mobile Menu Drawer Toggle
+    // 1. Mobile Drawer Navigation
     const mobileToggle = document.querySelector('.mobile-toggle');
     const navMenu = document.querySelector('.nav-menu');
     let navOverlay = document.querySelector('.nav-overlay');
@@ -52,34 +52,43 @@
       document.body.appendChild(navOverlay);
     }
 
+    const openMenu = () => {
+      navMenu.classList.add('open');
+      navOverlay.classList.add('show');
+    };
+
+    const closeMenu = () => {
+      navMenu.classList.remove('open');
+      navOverlay.classList.remove('show');
+    };
+
     if (mobileToggle && navMenu) {
-      const toggleMenu = () => {
-        navMenu.classList.toggle('open');
-        navOverlay.classList.toggle('show');
-      };
-      mobileToggle.addEventListener('click', toggleMenu);
-      navOverlay.addEventListener('click', toggleMenu);
+      mobileToggle.addEventListener('click', (e) => {
+        e.stopPropagation();
+        if (navMenu.classList.contains('open')) {
+          closeMenu();
+        } else {
+          openMenu();
+        }
+      });
+
+      navOverlay.addEventListener('click', closeMenu);
     }
 
-    // 2. Touch Dropdown for "خدماتنا"
+    // 2. On-Touch Dropdown Toggle for "خدماتنا"
     const dropdownBtns = document.querySelectorAll('.dropdown-btn');
     dropdownBtns.forEach((btn) => {
       btn.addEventListener('click', (e) => {
         e.preventDefault();
         e.stopPropagation();
-        const menu = btn.nextElementSibling;
+        const parent = btn.closest('.dropdown');
+        const menu = parent ? parent.querySelector('.dropdown-menu') : null;
+        
         if (menu) {
           menu.classList.toggle('show');
           btn.classList.toggle('open');
         }
       });
-    });
-
-    document.addEventListener('click', (e) => {
-      if (!e.target.closest('.nav-item.dropdown')) {
-        document.querySelectorAll('.dropdown-menu').forEach((menu) => menu.classList.remove('show'));
-        document.querySelectorAll('.dropdown-btn').forEach((btn) => btn.classList.remove('open'));
-      }
     });
 
     // 3. Centralized Click Tracker
