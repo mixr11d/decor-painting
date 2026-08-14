@@ -1,15 +1,12 @@
 /**
- * Centralized Script & Tracking Engine (Mobile UX Optimized)
- * Activity: Painting, Modern Decor & Gypsum Board - Riyadh
+ * Centralized Script & Tracking Engine (Rock-Solid Touch Nav)
+ * Activity: Modern Paints & Gypsum Board - Riyadh
  * Client Ad Phone: 0557482300
  */
 
 (function () {
   'use strict';
 
-  // ==========================================
-  // CONFIGURATION: Google Ads & Contact Target
-  // ==========================================
   const CLIENT_PHONE = '0557482300';
   const CLIENT_INT_PHONE = '966557482300';
   
@@ -18,7 +15,6 @@
   const CONVERSION_LABEL_WHATSAPP = ''; 
   const CONVERSION_LABEL_FORM = ''; 
 
-  // Inject Google Tag
   if (GOOGLE_ADS_ID && GOOGLE_ADS_ID.trim() !== '') {
     const scriptTag = document.createElement('script');
     scriptTag.async = true;
@@ -41,41 +37,70 @@
 
   document.addEventListener('DOMContentLoaded', () => {
     
-    // 1. Mobile Drawer Navigation
+    // --- 1. Mobile Drawer Logic ---
     const mobileToggle = document.querySelector('.mobile-toggle');
     const navMenu = document.querySelector('.nav-menu');
+    
+    // Create Backdrop Overlay
     let navOverlay = document.querySelector('.nav-overlay');
-
     if (!navOverlay) {
       navOverlay = document.createElement('div');
       navOverlay.className = 'nav-overlay';
       document.body.appendChild(navOverlay);
     }
 
-    const openMenu = () => {
-      navMenu.classList.add('open');
-      navOverlay.classList.add('show');
-    };
+    // Add Close Button inside Nav Menu
+    if (navMenu && !navMenu.querySelector('.drawer-close-btn')) {
+      const closeBtn = document.createElement('button');
+      closeBtn.className = 'drawer-close-btn';
+      closeBtn.innerHTML = '&times; إغلاق القائمة';
+      closeBtn.setAttribute('aria-label', 'إغلاق');
+      navMenu.insertBefore(closeBtn, navMenu.firstChild);
 
-    const closeMenu = () => {
-      navMenu.classList.remove('open');
-      navOverlay.classList.remove('show');
-    };
-
-    if (mobileToggle && navMenu) {
-      mobileToggle.addEventListener('click', (e) => {
+      closeBtn.addEventListener('click', (e) => {
+        e.preventDefault();
         e.stopPropagation();
-        if (navMenu.classList.contains('open')) {
-          closeMenu();
-        } else {
-          openMenu();
-        }
+        closeNav();
       });
-
-      navOverlay.addEventListener('click', closeMenu);
     }
 
-    // 2. On-Touch Dropdown Toggle for "خدماتنا"
+    function openNav() {
+      navMenu.classList.add('open');
+      navOverlay.classList.add('show');
+      document.body.style.overflow = 'hidden'; // Prevent background scroll
+    }
+
+    function closeNav() {
+      navMenu.classList.remove('open');
+      navOverlay.classList.remove('show');
+      document.body.style.overflow = '';
+    }
+
+    if (mobileToggle) {
+      mobileToggle.addEventListener('click', (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        if (navMenu.classList.contains('open')) {
+          closeNav();
+        } else {
+          openNav();
+        }
+      });
+    }
+
+    navOverlay.addEventListener('click', (e) => {
+      e.preventDefault();
+      closeNav();
+    });
+
+    // Prevent clicks inside the drawer from bubbling and closing it
+    if (navMenu) {
+      navMenu.addEventListener('click', (e) => {
+        e.stopPropagation();
+      });
+    }
+
+    // --- 2. Touch Dropdown Logic for "خدماتنا" ---
     const dropdownBtns = document.querySelectorAll('.dropdown-btn');
     dropdownBtns.forEach((btn) => {
       btn.addEventListener('click', (e) => {
@@ -85,13 +110,28 @@
         const menu = parent ? parent.querySelector('.dropdown-menu') : null;
         
         if (menu) {
-          menu.classList.toggle('show');
-          btn.classList.toggle('open');
+          const isOpen = menu.classList.contains('show');
+          // Close other dropdowns
+          document.querySelectorAll('.dropdown-menu').forEach(m => m.classList.remove('show'));
+          document.querySelectorAll('.dropdown-btn').forEach(b => b.classList.remove('open'));
+          
+          if (!isOpen) {
+            menu.classList.add('show');
+            btn.classList.add('open');
+          }
         }
       });
     });
 
-    // 3. Centralized Click Tracker
+    // Close dropdown on outside tap on desktop
+    document.addEventListener('click', () => {
+      if (window.innerWidth > 991) {
+        document.querySelectorAll('.dropdown-menu').forEach(m => m.classList.remove('show'));
+        document.querySelectorAll('.dropdown-btn').forEach(b => b.classList.remove('open'));
+      }
+    });
+
+    // --- 3. Click Tracker for Ads ---
     document.addEventListener('click', (e) => {
       const target = e.target.closest('a');
       if (!target) return;
@@ -111,7 +151,7 @@
       }
     });
 
-    // 4. Interactive Lead Form to WhatsApp
+    // --- 4. Interactive Lead Form to WhatsApp ---
     const leadForm = document.getElementById('inspectionForm');
     if (leadForm) {
       leadForm.addEventListener('submit', (e) => {
@@ -142,7 +182,7 @@
       });
     }
 
-    // 5. Scroll to Top
+    // --- 5. Scroll to Top ---
     const scrollTopBtn = document.getElementById('scrollTopBtn');
     if (scrollTopBtn) {
       window.addEventListener('scroll', () => {
