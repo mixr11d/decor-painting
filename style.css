@@ -125,6 +125,7 @@ ul {
   display: flex;
   align-items: center;
   gap: 0.75rem;
+  z-index: 1001;
 }
 
 .logo-wrap img {
@@ -196,7 +197,7 @@ ul {
   box-shadow: var(--shadow-lg);
   border: 1px solid var(--border-color);
   padding: 0.6rem 0;
-  z-index: 1001;
+  z-index: 1002;
 }
 
 .dropdown-menu.show {
@@ -224,16 +225,19 @@ ul {
   display: none;
   background: none;
   border: none;
-  font-size: 1.6rem;
+  font-size: 1.8rem;
   color: var(--primary);
   cursor: pointer;
   padding: 0.4rem;
+  z-index: 1001;
 }
 
 /* Hero Section */
 .hero {
   position: relative;
-  background: linear-gradient(135deg, rgba(45,90,39,0.92) 0%, rgba(30,61,26,0.96) 100%), url('images/Interior-Painting (1)_result.webp') center/cover no-repeat;
+  background-color: var(--primary-dark);
+  background-size: cover;
+  background-position: center;
   color: #ffffff;
   padding: 4.5rem 0 3.5rem;
   text-align: center;
@@ -346,7 +350,7 @@ ul {
   gap: 0.4rem;
 }
 
-/* Section Components */
+/* Sections */
 .section {
   padding: 4rem 0;
 }
@@ -408,6 +412,7 @@ ul {
   height: 200px;
   width: 100%;
   overflow: hidden;
+  background-color: #e9e4da;
 }
 
 .service-card-img img {
@@ -451,7 +456,7 @@ ul {
   font-size: 0.9rem;
 }
 
-/* Gallery (2 Cols Mobile, 3 Cols Desktop) */
+/* Gallery */
 .gallery-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -541,52 +546,6 @@ ul {
   box-shadow: 0 0 0 3px rgba(45, 90, 39, 0.15);
 }
 
-/* Features Grid */
-.features-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 1.5rem;
-}
-
-.feature-box {
-  background: var(--surface);
-  padding: 1.8rem 1.4rem;
-  border-radius: var(--radius-md);
-  border: 1px solid var(--border-color);
-  text-align: center;
-  transition: var(--transition);
-}
-
-.feature-box:hover {
-  transform: translateY(-4px);
-  border-color: var(--primary-light);
-}
-
-.feature-icon {
-  width: 60px;
-  height: 60px;
-  background-color: rgba(45, 90, 39, 0.1);
-  color: var(--primary);
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: 0 auto 1.2rem;
-  font-size: 1.6rem;
-}
-
-.feature-box h3 {
-  font-size: 1.1rem;
-  font-weight: 800;
-  color: var(--primary);
-  margin-bottom: 0.5rem;
-}
-
-.feature-box p {
-  font-size: 0.85rem;
-  color: var(--text-muted);
-}
-
 /* Floating Action Buttons */
 .fab-container-right {
   position: fixed;
@@ -611,40 +570,21 @@ ul {
   cursor: pointer;
 }
 
-.fab-call {
-  background: linear-gradient(135deg, #1d72fe, #0b55ca);
-}
-
-.fab-whatsapp {
-  background: linear-gradient(135deg, #2ae06c, #1fa84f);
-}
+.fab-call { background: linear-gradient(135deg, #1d72fe, #0b55ca); }
+.fab-whatsapp { background: linear-gradient(135deg, #2ae06c, #1fa84f); }
 
 .fab-shake {
   animation: intermittentShake 4s ease-in-out infinite;
 }
 
 @keyframes intermittentShake {
-  0%, 75%, 100% {
-    transform: scale(1) rotate(0deg);
-  }
-  78% {
-    transform: scale(1.08) rotate(-9deg);
-  }
-  82% {
-    transform: scale(1.08) rotate(9deg);
-  }
-  86% {
-    transform: scale(1.08) rotate(-7deg);
-  }
-  90% {
-    transform: scale(1.08) rotate(7deg);
-  }
-  94% {
-    transform: scale(1.04) rotate(-3deg);
-  }
-  98% {
-    transform: scale(1.02) rotate(3deg);
-  }
+  0%, 75%, 100% { transform: scale(1) rotate(0deg); }
+  78% { transform: scale(1.08) rotate(-9deg); }
+  82% { transform: scale(1.08) rotate(9deg); }
+  86% { transform: scale(1.08) rotate(-7deg); }
+  90% { transform: scale(1.08) rotate(7deg); }
+  94% { transform: scale(1.04) rotate(-3deg); }
+  98% { transform: scale(1.02) rotate(3deg); }
 }
 
 .fab-container-left {
@@ -666,12 +606,9 @@ ul {
   box-shadow: var(--shadow-md);
   border: none;
   cursor: pointer;
-  opacity: 0.9;
 }
 
-.fab-scroll-top.visible {
-  display: flex;
-}
+.fab-scroll-top.visible { display: flex; }
 
 /* Footer */
 .site-footer {
@@ -714,19 +651,9 @@ ul {
   background-color: var(--wood);
 }
 
-.footer-links li {
-  margin-bottom: 0.6rem;
-}
-
-.footer-links a {
-  font-size: 0.9rem;
-  color: #cbd8cb;
-}
-
-.footer-links a:hover {
-  color: #ffd978;
-  padding-right: 0.4rem;
-}
+.footer-links li { margin-bottom: 0.6rem; }
+.footer-links a { font-size: 0.9rem; color: #cbd8cb; }
+.footer-links a:hover { color: #ffd978; padding-right: 0.4rem; }
 
 .neighborhoods-section {
   background-color: rgba(255, 255, 255, 0.04);
@@ -772,12 +699,7 @@ ul {
   font-weight: 700;
 }
 
-.developer-credit:hover {
-  text-decoration: underline;
-  color: #ffffff;
-}
-
-/* Mobile Nav Drawer */
+/* Fixed Mobile Navigation & Drawer */
 @media (max-width: 991px) {
   .mobile-toggle {
     display: block;
@@ -796,7 +718,7 @@ ul {
     padding: 5rem 1.5rem 2rem;
     box-shadow: -5px 0 25px rgba(0, 0, 0, 0.25);
     transition: right 0.35s ease;
-    z-index: 1005;
+    z-index: 10000;
     overflow-y: auto;
   }
 
@@ -828,7 +750,7 @@ ul {
     position: fixed;
     inset: 0;
     background: rgba(0, 0, 0, 0.55);
-    z-index: 1004;
+    z-index: 9999;
   }
 
   .nav-overlay.show {
