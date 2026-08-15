@@ -1,5 +1,5 @@
 /**
- * Native Touch Navigation & Conversion Engine
+ * Rock-Solid Mobile Drawer & Conversion Tracking
  * Activity: Modern Paints & Gypsum Board - Riyadh
  * Client Ad Phone: 0557482300
  */
@@ -37,7 +37,7 @@
 
   document.addEventListener('DOMContentLoaded', () => {
     
-    // --- 1. Direct Touch Sidebar Logic ---
+    // --- 1. Isolated Drawer Navigation ---
     const mobileToggle = document.querySelector('.mobile-toggle');
     const navMenu = document.querySelector('.nav-menu');
     
@@ -52,7 +52,7 @@
       const closeBtn = document.createElement('button');
       closeBtn.className = 'drawer-close-btn';
       closeBtn.innerHTML = '✖ إغلاق القائمة';
-      closeBtn.setAttribute('aria-label', 'إغلاق');
+      closeBtn.setAttribute('aria-label', 'إغلاق القائمة');
       navMenu.insertBefore(closeBtn, navMenu.firstChild);
 
       closeBtn.addEventListener('click', (e) => {
@@ -62,34 +62,42 @@
     }
 
     function openNav() {
-      navMenu.classList.add('open');
-      navOverlay.classList.add('show');
-      document.body.style.overflow = 'hidden';
+      if (navMenu && navOverlay) {
+        navMenu.classList.add('open');
+        navOverlay.classList.add('show');
+        document.body.style.overflow = 'hidden';
+      }
     }
 
     function closeNav() {
-      navMenu.classList.remove('open');
-      navOverlay.classList.remove('show');
-      document.body.style.overflow = '';
+      if (navMenu && navOverlay) {
+        navMenu.classList.remove('open');
+        navOverlay.classList.remove('show');
+        document.body.style.overflow = '';
+      }
     }
 
     if (mobileToggle) {
       mobileToggle.addEventListener('click', (e) => {
         e.preventDefault();
+        e.stopPropagation();
         openNav();
       });
     }
 
-    navOverlay.addEventListener('click', (e) => {
-      e.preventDefault();
-      closeNav();
-    });
+    if (navOverlay) {
+      navOverlay.addEventListener('click', (e) => {
+        e.preventDefault();
+        closeNav();
+      });
+    }
 
-    // --- 2. On-Touch Dropdown Toggle for "خدماتنا" ---
+    // --- 2. Dropdown Toggle for "خدماتنا" ---
     const dropdownBtns = document.querySelectorAll('.dropdown-btn');
     dropdownBtns.forEach((btn) => {
       btn.addEventListener('click', (e) => {
         e.preventDefault();
+        e.stopPropagation();
         const parent = btn.closest('.dropdown');
         const menu = parent ? parent.querySelector('.dropdown-menu') : null;
         
@@ -106,7 +114,7 @@
       });
     });
 
-    // Close on outside tap on desktop
+    // Close desktop dropdown on outside click
     document.addEventListener('click', (e) => {
       if (window.innerWidth > 991 && !e.target.closest('.dropdown')) {
         document.querySelectorAll('.dropdown-menu').forEach(m => m.classList.remove('show'));
@@ -134,7 +142,7 @@
       }
     });
 
-    // --- 4. Interactive Lead Form to WhatsApp ---
+    // --- 4. Interactive Form to WhatsApp ---
     const leadForm = document.getElementById('inspectionForm');
     if (leadForm) {
       leadForm.addEventListener('submit', (e) => {
