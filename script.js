@@ -1,5 +1,5 @@
 /**
- * Centralized Script & Tracking Engine (Mobile UX & Ads Optimized)
+ * Centralized Script & Tracking Engine (Bulletproof Mobile UX)
  * Activity: Modern Paints & Gypsum Board - Riyadh
  * Client Ad Phone: 0557482300
  */
@@ -37,7 +37,7 @@
 
   document.addEventListener('DOMContentLoaded', () => {
     
-    // --- 1. Robust Mobile Drawer Navigation ---
+    // --- 1. Robust Drawer Navigation ---
     const mobileToggle = document.querySelector('.mobile-toggle');
     const navMenu = document.querySelector('.nav-menu');
     
@@ -88,9 +88,11 @@
 
     navOverlay.addEventListener('click', (e) => {
       e.preventDefault();
+      e.stopPropagation();
       closeNav();
     });
 
+    // CRITICAL: Stop propagation inside nav menu so taps on links work flawlessly
     if (navMenu) {
       navMenu.addEventListener('click', (e) => {
         e.stopPropagation();
@@ -119,6 +121,7 @@
       });
     });
 
+    // Close on outside tap for desktop screens only
     document.addEventListener('click', () => {
       if (window.innerWidth > 991) {
         document.querySelectorAll('.dropdown-menu').forEach(m => m.classList.remove('show'));
@@ -126,7 +129,7 @@
       }
     });
 
-    // --- 3. Ads Click Tracker ---
+    // --- 3. Ads Conversion Click Tracker ---
     document.addEventListener('click', (e) => {
       const target = e.target.closest('a');
       if (!target) return;
@@ -146,7 +149,7 @@
       }
     });
 
-    // --- 4. Interactive Lead Form to WhatsApp ---
+    // --- 4. Interactive Free Inspection Form to WhatsApp ---
     const leadForm = document.getElementById('inspectionForm');
     if (leadForm) {
       leadForm.addEventListener('submit', (e) => {
