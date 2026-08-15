@@ -1,5 +1,5 @@
 /* ==========================================================================
-   Eco-Warm Wood Theme - Rock Solid Navigation & Clean Layout
+   Eco-Warm Wood Theme - Direct Touch UI (Zero-Overlay Bug-Free)
    Activity: Modern Paints & Gypsum Board Riyadh | Phone: 0557482300
    ========================================================================== */
 
@@ -48,7 +48,6 @@ body {
   color: var(--text-main);
   line-height: 1.65;
   overflow-x: hidden;
-  position: relative;
 }
 
 img {
@@ -87,7 +86,6 @@ ul {
   text-align: center;
   position: relative;
   overflow: hidden;
-  z-index: 10;
 }
 
 .promo-bar::before {
@@ -111,7 +109,7 @@ ul {
   box-shadow: var(--shadow-sm);
   position: sticky;
   top: 0;
-  z-index: 100;
+  z-index: 1000;
   border-bottom: 1px solid var(--border-color);
 }
 
@@ -198,7 +196,7 @@ ul {
   box-shadow: var(--shadow-lg);
   border: 1px solid var(--border-color);
   padding: 0.6rem 0;
-  z-index: 105;
+  z-index: 1002;
 }
 
 .dropdown-menu.show {
@@ -239,7 +237,6 @@ ul {
   color: #ffffff;
   padding: 4.8rem 0 3.8rem;
   text-align: center;
-  z-index: 1;
 }
 
 .hero-content {
@@ -356,8 +353,6 @@ ul {
 /* ================= Section Base ================= */
 .section {
   padding: 4rem 0;
-  position: relative;
-  z-index: 1;
 }
 
 .section-title-wrap {
@@ -494,7 +489,7 @@ ul {
   transform: scale(1.05);
 }
 
-/* ================= Lead Form ================= */
+/* ================= Interactive Lead Form ================= */
 .form-section {
   background: linear-gradient(180deg, #f3ece0 0%, var(--bg-sand) 100%);
   border-radius: var(--radius-lg);
@@ -605,7 +600,7 @@ ul {
   display: flex;
   flex-direction: column;
   gap: 0.85rem;
-  z-index: 90;
+  z-index: 999;
 }
 
 .fab-btn {
@@ -662,7 +657,7 @@ ul {
   position: fixed;
   bottom: 1.5rem;
   left: 1.25rem;
-  z-index: 90;
+  z-index: 999;
 }
 
 .fab-scroll-top {
@@ -690,8 +685,6 @@ ul {
   color: #e5ece4;
   padding: 3.8rem 0 1.5rem;
   border-top: 3px solid var(--wood);
-  position: relative;
-  z-index: 1;
 }
 
 .footer-grid {
@@ -792,35 +785,33 @@ ul {
   color: #ffffff;
 }
 
-/* ================= True Independent Off-Canvas Drawer (Mobile) ================= */
+/* ================= Mobile Direct Sidebar (100% Touch Responsive) ================= */
 @media (max-width: 991px) {
   .mobile-toggle {
     display: block;
   }
 
-  /* Completely isolate the drawer outside the page flow */
   .nav-menu {
+    display: none;
     position: fixed;
     top: 0;
     right: 0;
-    width: 310px;
-    max-width: 85vw;
+    width: 320px;
+    max-width: 88vw;
     height: 100vh;
-    background-color: #ffffff;
+    background-color: #ffffff !important;
     flex-direction: column;
     align-items: stretch;
     gap: 0;
     padding: 1.5rem 1.25rem 4rem;
-    box-shadow: -10px 0 40px rgba(0, 0, 0, 0.45);
-    transform: translateX(115%);
-    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    z-index: 999999;
+    box-shadow: -10px 0 40px rgba(0, 0, 0, 0.5);
+    z-index: 1000000;
     overflow-y: auto;
     -webkit-overflow-scrolling: touch;
   }
 
   .nav-menu.open {
-    transform: translateX(0);
+    display: flex !important;
   }
 
   .drawer-close-btn {
@@ -853,6 +844,7 @@ ul {
     justify-content: space-between;
     align-items: center;
     color: var(--text-main);
+    cursor: pointer;
   }
 
   .dropdown-menu {
@@ -867,7 +859,7 @@ ul {
   }
 
   .dropdown-menu.show {
-    display: flex;
+    display: flex !important;
     flex-direction: column;
   }
 
@@ -883,20 +875,9 @@ ul {
     border-bottom: none;
   }
 
-  /* Backdrop Overlay */
+  /* Completely removed blocking overlay to guarantee 100% touch reliability */
   .nav-overlay {
-    position: fixed;
-    inset: 0;
-    background: rgba(0, 0, 0, 0.6);
-    z-index: 999990;
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity 0.3s ease;
-  }
-
-  .nav-overlay.show {
-    opacity: 1;
-    pointer-events: auto;
+    display: none !important;
   }
 }
 
