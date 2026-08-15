@@ -1,5 +1,5 @@
 /**
- * Centralized Script & Tracking Engine (Bulletproof Mobile UX)
+ * Native Touch Navigation & Conversion Engine
  * Activity: Modern Paints & Gypsum Board - Riyadh
  * Client Ad Phone: 0557482300
  */
@@ -37,7 +37,7 @@
 
   document.addEventListener('DOMContentLoaded', () => {
     
-    // --- 1. Robust Drawer Navigation ---
+    // --- 1. Direct Touch Sidebar Logic ---
     const mobileToggle = document.querySelector('.mobile-toggle');
     const navMenu = document.querySelector('.nav-menu');
     
@@ -52,12 +52,11 @@
       const closeBtn = document.createElement('button');
       closeBtn.className = 'drawer-close-btn';
       closeBtn.innerHTML = '✖ إغلاق القائمة';
-      closeBtn.setAttribute('aria-label', 'إغلاق القائمة');
+      closeBtn.setAttribute('aria-label', 'إغلاق');
       navMenu.insertBefore(closeBtn, navMenu.firstChild);
 
       closeBtn.addEventListener('click', (e) => {
         e.preventDefault();
-        e.stopPropagation();
         closeNav();
       });
     }
@@ -77,12 +76,7 @@
     if (mobileToggle) {
       mobileToggle.addEventListener('click', (e) => {
         e.preventDefault();
-        e.stopPropagation();
-        if (navMenu.classList.contains('open')) {
-          closeNav();
-        } else {
-          openNav();
-        }
+        openNav();
       });
     }
 
@@ -91,18 +85,11 @@
       closeNav();
     });
 
-    if (navMenu) {
-      navMenu.addEventListener('click', (e) => {
-        e.stopPropagation();
-      });
-    }
-
     // --- 2. On-Touch Dropdown Toggle for "خدماتنا" ---
     const dropdownBtns = document.querySelectorAll('.dropdown-btn');
     dropdownBtns.forEach((btn) => {
       btn.addEventListener('click', (e) => {
         e.preventDefault();
-        e.stopPropagation();
         const parent = btn.closest('.dropdown');
         const menu = parent ? parent.querySelector('.dropdown-menu') : null;
         
@@ -119,9 +106,9 @@
       });
     });
 
-    // Close on outside tap for desktop screens only
-    document.addEventListener('click', () => {
-      if (window.innerWidth > 991) {
+    // Close on outside tap on desktop
+    document.addEventListener('click', (e) => {
+      if (window.innerWidth > 991 && !e.target.closest('.dropdown')) {
         document.querySelectorAll('.dropdown-menu').forEach(m => m.classList.remove('show'));
         document.querySelectorAll('.dropdown-btn').forEach(b => b.classList.remove('open'));
       }
