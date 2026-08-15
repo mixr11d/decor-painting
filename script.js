@@ -1,5 +1,5 @@
 /**
- * Rock-Solid Mobile Drawer & Conversion Tracking
+ * Zero-Bug Mobile Touch & Conversion Tracking
  * Activity: Modern Paints & Gypsum Board - Riyadh
  * Client Ad Phone: 0557482300
  */
@@ -37,58 +37,33 @@
 
   document.addEventListener('DOMContentLoaded', () => {
     
-    // --- 1. Isolated Drawer Navigation ---
+    // --- 1. Direct Touch Sidebar Logic ---
     const mobileToggle = document.querySelector('.mobile-toggle');
     const navMenu = document.querySelector('.nav-menu');
-    
-    let navOverlay = document.querySelector('.nav-overlay');
-    if (!navOverlay) {
-      navOverlay = document.createElement('div');
-      navOverlay.className = 'nav-overlay';
-      document.body.appendChild(navOverlay);
-    }
 
     if (navMenu && !navMenu.querySelector('.drawer-close-btn')) {
       const closeBtn = document.createElement('button');
       closeBtn.className = 'drawer-close-btn';
       closeBtn.innerHTML = '✖ إغلاق القائمة';
-      closeBtn.setAttribute('aria-label', 'إغلاق القائمة');
+      closeBtn.setAttribute('aria-label', 'إغلاق');
       navMenu.insertBefore(closeBtn, navMenu.firstChild);
 
       closeBtn.addEventListener('click', (e) => {
         e.preventDefault();
-        closeNav();
+        navMenu.classList.remove('open');
+        document.body.style.overflow = '';
       });
     }
 
-    function openNav() {
-      if (navMenu && navOverlay) {
-        navMenu.classList.add('open');
-        navOverlay.classList.add('show');
-        document.body.style.overflow = 'hidden';
-      }
-    }
-
-    function closeNav() {
-      if (navMenu && navOverlay) {
-        navMenu.classList.remove('open');
-        navOverlay.classList.remove('show');
-        document.body.style.overflow = '';
-      }
-    }
-
-    if (mobileToggle) {
+    if (mobileToggle && navMenu) {
       mobileToggle.addEventListener('click', (e) => {
         e.preventDefault();
-        e.stopPropagation();
-        openNav();
-      });
-    }
-
-    if (navOverlay) {
-      navOverlay.addEventListener('click', (e) => {
-        e.preventDefault();
-        closeNav();
+        navMenu.classList.toggle('open');
+        if (navMenu.classList.contains('open')) {
+          document.body.style.overflow = 'hidden';
+        } else {
+          document.body.style.overflow = '';
+        }
       });
     }
 
@@ -97,29 +72,14 @@
     dropdownBtns.forEach((btn) => {
       btn.addEventListener('click', (e) => {
         e.preventDefault();
-        e.stopPropagation();
         const parent = btn.closest('.dropdown');
         const menu = parent ? parent.querySelector('.dropdown-menu') : null;
         
         if (menu) {
-          const isOpen = menu.classList.contains('show');
-          document.querySelectorAll('.dropdown-menu').forEach(m => m.classList.remove('show'));
-          document.querySelectorAll('.dropdown-btn').forEach(b => b.classList.remove('open'));
-          
-          if (!isOpen) {
-            menu.classList.add('show');
-            btn.classList.add('open');
-          }
+          menu.classList.toggle('show');
+          btn.classList.toggle('open');
         }
       });
-    });
-
-    // Close desktop dropdown on outside click
-    document.addEventListener('click', (e) => {
-      if (window.innerWidth > 991 && !e.target.closest('.dropdown')) {
-        document.querySelectorAll('.dropdown-menu').forEach(m => m.classList.remove('show'));
-        document.querySelectorAll('.dropdown-btn').forEach(b => b.classList.remove('open'));
-      }
     });
 
     // --- 3. Ads Click Tracker ---
