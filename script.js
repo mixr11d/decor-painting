@@ -88,11 +88,9 @@
 
     navOverlay.addEventListener('click', (e) => {
       e.preventDefault();
-      e.stopPropagation();
       closeNav();
     });
 
-    // CRITICAL: Stop propagation inside nav menu so taps on links work flawlessly
     if (navMenu) {
       navMenu.addEventListener('click', (e) => {
         e.stopPropagation();
@@ -129,7 +127,7 @@
       }
     });
 
-    // --- 3. Ads Conversion Click Tracker ---
+    // --- 3. Ads Click Tracker ---
     document.addEventListener('click', (e) => {
       const target = e.target.closest('a');
       if (!target) return;
@@ -149,7 +147,7 @@
       }
     });
 
-    // --- 4. Interactive Free Inspection Form to WhatsApp ---
+    // --- 4. Interactive Lead Form to WhatsApp ---
     const leadForm = document.getElementById('inspectionForm');
     if (leadForm) {
       leadForm.addEventListener('submit', (e) => {
