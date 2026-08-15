@@ -599,7 +599,7 @@ ul {
   display: flex;
   flex-direction: column;
   gap: 0.85rem;
-  z-index: 9999;
+  z-index: 999;
 }
 
 .fab-btn {
@@ -656,7 +656,7 @@ ul {
   position: fixed;
   bottom: 1.5rem;
   left: 1.25rem;
-  z-index: 9999;
+  z-index: 999;
 }
 
 .fab-scroll-top {
@@ -784,7 +784,7 @@ ul {
   color: #ffffff;
 }
 
-/* ================= 100% Solid Mobile Navigation (Guaranteed Fix) ================= */
+/* ================= Native Mobile Sidebar ================= */
 @media (max-width: 991px) {
   .mobile-toggle {
     display: block !important;
@@ -793,8 +793,8 @@ ul {
   .nav-menu {
     position: fixed !important;
     top: 0 !important;
-    right: -105% !important;
-    width: 320px !important;
+    right: 0 !important;
+    width: 300px !important;
     max-width: 85vw !important;
     height: 100vh !important;
     background: #ffffff !important;
@@ -802,15 +802,17 @@ ul {
     align-items: stretch !important;
     gap: 0 !important;
     padding: 1.5rem 1.25rem 4rem !important;
-    box-shadow: -10px 0 40px rgba(0, 0, 0, 0.5) !important;
-    transition: right 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
-    z-index: 999999 !important;
+    box-shadow: -8px 0 35px rgba(0, 0, 0, 0.4) !important;
+    transform: translateX(110%) !important;
+    transition: transform 0.3s ease-out !important;
+    z-index: 100000 !important;
     overflow-y: auto !important;
     -webkit-overflow-scrolling: touch !important;
+    pointer-events: auto !important;
   }
 
   .nav-menu.open {
-    right: 0 !important;
+    transform: translateX(0%) !important;
   }
 
   .drawer-close-btn {
@@ -843,7 +845,7 @@ ul {
     justify-content: space-between !important;
     align-items: center !important;
     color: var(--text-main) !important;
-    pointer-events: auto !important;
+    cursor: pointer !important;
   }
 
   .dropdown-menu {
@@ -867,7 +869,7 @@ ul {
     font-size: 0.95rem !important;
     font-weight: 700 !important;
     border-bottom: 1px dashed rgba(0,0,0,0.08) !important;
-    pointer-events: auto !important;
+    color: var(--text-main) !important;
   }
 
   .dropdown-menu a:last-child {
@@ -875,15 +877,18 @@ ul {
   }
 
   .nav-overlay {
-    display: none;
     position: fixed !important;
     inset: 0 !important;
     background: rgba(0, 0, 0, 0.6) !important;
-    z-index: 99999 !important;
+    z-index: 9999 !important;
+    opacity: 0 !important;
+    pointer-events: none !important;
+    transition: opacity 0.3s ease !important;
   }
 
   .nav-overlay.show {
-    display: block !important;
+    opacity: 1 !important;
+    pointer-events: auto !important;
   }
 }
 
