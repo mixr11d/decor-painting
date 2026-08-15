@@ -9,6 +9,80 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="./style.css">
+  <style>
+    /* Responsive Content Styling for About Us Page */
+    .about-layout {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 2.5rem;
+      align-items: center;
+    }
+
+    .about-content-box {
+      display: flex;
+      flex-direction: column;
+      gap: 1.2rem;
+    }
+
+    .about-text-lead {
+      font-size: 1.05rem;
+      color: var(--text-muted);
+      line-height: 1.85;
+      text-align: justify;
+    }
+
+    .about-features-list {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 0.9rem;
+      margin-top: 0.5rem;
+    }
+
+    .about-feature-item {
+      background: var(--surface);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-sm);
+      padding: 0.85rem 1.1rem;
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--primary);
+      box-shadow: var(--shadow-sm);
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    .about-img-wrap {
+      width: 100%;
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      box-shadow: var(--shadow-md);
+      border: 1px solid var(--border-color);
+    }
+
+    .about-img-wrap img {
+      width: 100%;
+      height: 380px;
+      object-fit: cover;
+    }
+
+    /* Mobile UX Optimization */
+    @media (max-width: 860px) {
+      .about-layout {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+      
+      .about-img-wrap img {
+        height: 240px;
+      }
+
+      .about-text-lead {
+        font-size: 0.98rem;
+        line-height: 1.8;
+      }
+    }
+  </style>
 </head>
 <body>
 
@@ -50,7 +124,7 @@
     </div>
   </header>
 
-  <section class="hero" style="background-image: linear-gradient(135deg, rgba(27, 56, 23, 0.85) 0%, rgba(45, 90, 39, 0.82) 100%), url('./images/modern-decor-1_result.webp');">
+  <section class="hero" style="padding: 4.5rem 0 3rem; background-image: linear-gradient(135deg, rgba(27, 56, 23, 0.85) 0%, rgba(45, 90, 39, 0.82) 100%), url('./images/modern-decor-1_result.webp');">
     <div class="container hero-content">
       <div class="hero-badge">⭐ ريادة واحترافية في التشطيب الداخلي والخارجي</div>
       <h1 class="hero-title">نحن نصنع <span>الفخامة في كل تفصيلة</span></h1>
@@ -62,23 +136,38 @@
 
   <section class="section">
     <div class="container">
-      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2.5rem; align-items: center;">
-        <div>
-          <span class="section-badge">رؤيتنا ورسالتنا</span>
-          <h2 class="section-title" style="text-align: right;">الجودة ليست مجرد شعار بل التزام يومي</h2>
-          <p style="margin-bottom: 1.2rem; color: var(--text-muted); line-height: 1.8;">
-            انطلقنا في مدينة الرياض بهدف تقديم خدمات تشطيب دهانات وديكورات تفوق توقعات العملاء. نحرص على انتقاء أمهر الكوادر الفنية وتدريبها على أحدث الأساليب العالمية واستخدام المواد المعتمدة والمطابقة للمواصفات السعودية.
+      <div class="about-layout">
+        
+        <div class="about-content-box">
+          <div>
+            <span class="section-badge">رؤيتنا ورسالتنا</span>
+            <h2 class="section-title" style="text-align: right; margin-top: 0.4rem;">الجودة ليست مجرد شعار بل التزام يومي</h2>
+          </div>
+          
+          <p class="about-text-lead">
+            انطلقنا في مدينة الرياض بهدف تقديم خدمات تشطيب دهانات وديكورات تفوق توقعات العملاء. نحرص على انتقاء أمهر الكوادر الفنية وتدريبها على أحدث الأساليب العالمية واستخدام المواد المعتمدة والمطابقة للمواصفات السعودية، لنمنح منزلك لمسة جمال تدوم طويلاً.
           </p>
-          <ul style="display: flex; flex-direction: column; gap: 0.75rem; font-weight: 700; color: var(--primary);">
-            <li>✓ تنفيذ أكثر من 1500 مشروع سكني وتجاري ناجح بالرياض.</li>
-            <li>✓ عقود رسمية واضحة وجدول زمني صارم للتسليم.</li>
-            <li>✓ ضمان خطي حقيقي على جميع الأعمال المنفذة.</li>
-            <li>✓ طاقم نظافة مخصص بعد الانتهاء من العمل لتسليم موقعك نظيفاً وجاهزاً.</li>
-          </ul>
+
+          <div class="about-features-list">
+            <div class="about-feature-item">
+              <span>💎</span> تنفيذ أكثر من 1500 مشروع سكني وتجاري ناجح بالرياض.
+            </div>
+            <div class="about-feature-item">
+              <span>📋</span> عقود رسمية واضحة وجدول زمني صارم للتسليم.
+            </div>
+            <div class="about-feature-item">
+              <span>🛡️</span> ضمان خطي حقيقي يصل حتى 10 سنوات على أعمالنا.
+            </div>
+            <div class="about-feature-item">
+              <span>✨</span> طاقم نظافة مخصص بعد الانتهاء لتسليم موقعك نظيفاً وجاهزاً.
+            </div>
+          </div>
         </div>
-        <div>
-          <img src="./images/interior-painting.jpeg" alt="فريق عمل الدهانات بالرياض" style="border-radius: var(--radius-md); box-shadow: var(--shadow-md); width:100%;">
+
+        <div class="about-img-wrap">
+          <img src="./images/interior-painting.jpeg" alt="فريق عمل الدهانات بالرياض" loading="lazy">
         </div>
+
       </div>
     </div>
   </section>
