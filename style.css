@@ -1,5 +1,5 @@
 /* ==========================================================================
-   Eco-Warm Wood Theme - Fully Unified & Stable Responsive UI
+   Eco-Warm Wood Theme - Rock Solid Navigation & Clean Layout
    Activity: Modern Paints & Gypsum Board Riyadh | Phone: 0557482300
    ========================================================================== */
 
@@ -48,6 +48,7 @@ body {
   color: var(--text-main);
   line-height: 1.65;
   overflow-x: hidden;
+  position: relative;
 }
 
 img {
@@ -86,6 +87,7 @@ ul {
   text-align: center;
   position: relative;
   overflow: hidden;
+  z-index: 10;
 }
 
 .promo-bar::before {
@@ -109,7 +111,7 @@ ul {
   box-shadow: var(--shadow-sm);
   position: sticky;
   top: 0;
-  z-index: 1000;
+  z-index: 100;
   border-bottom: 1px solid var(--border-color);
 }
 
@@ -146,6 +148,7 @@ ul {
   font-weight: 600;
 }
 
+/* Desktop Nav */
 .nav-menu {
   display: flex;
   align-items: center;
@@ -195,7 +198,7 @@ ul {
   box-shadow: var(--shadow-lg);
   border: 1px solid var(--border-color);
   padding: 0.6rem 0;
-  z-index: 1002;
+  z-index: 105;
 }
 
 .dropdown-menu.show {
@@ -236,6 +239,7 @@ ul {
   color: #ffffff;
   padding: 4.8rem 0 3.8rem;
   text-align: center;
+  z-index: 1;
 }
 
 .hero-content {
@@ -352,6 +356,8 @@ ul {
 /* ================= Section Base ================= */
 .section {
   padding: 4rem 0;
+  position: relative;
+  z-index: 1;
 }
 
 .section-title-wrap {
@@ -488,7 +494,7 @@ ul {
   transform: scale(1.05);
 }
 
-/* ================= Interactive Lead Form ================= */
+/* ================= Lead Form ================= */
 .form-section {
   background: linear-gradient(180deg, #f3ece0 0%, var(--bg-sand) 100%);
   border-radius: var(--radius-lg);
@@ -599,7 +605,7 @@ ul {
   display: flex;
   flex-direction: column;
   gap: 0.85rem;
-  z-index: 999;
+  z-index: 90;
 }
 
 .fab-btn {
@@ -656,7 +662,7 @@ ul {
   position: fixed;
   bottom: 1.5rem;
   left: 1.25rem;
-  z-index: 999;
+  z-index: 90;
 }
 
 .fab-scroll-top {
@@ -684,6 +690,8 @@ ul {
   color: #e5ece4;
   padding: 3.8rem 0 1.5rem;
   border-top: 3px solid var(--wood);
+  position: relative;
+  z-index: 1;
 }
 
 .footer-grid {
@@ -784,111 +792,111 @@ ul {
   color: #ffffff;
 }
 
-/* ================= Native Mobile Sidebar (Guaranteed Clickable) ================= */
+/* ================= True Independent Off-Canvas Drawer (Mobile) ================= */
 @media (max-width: 991px) {
   .mobile-toggle {
-    display: block !important;
+    display: block;
   }
 
+  /* Completely isolate the drawer outside the page flow */
   .nav-menu {
-    position: fixed !important;
-    top: 0 !important;
-    right: 0 !important;
-    width: 300px !important;
-    max-width: 85vw !important;
-    height: 100vh !important;
-    background: #ffffff !important;
-    flex-direction: column !important;
-    align-items: stretch !important;
-    gap: 0 !important;
-    padding: 1.5rem 1.25rem 4rem !important;
-    box-shadow: -8px 0 35px rgba(0, 0, 0, 0.4) !important;
-    transform: translateX(110%) !important;
-    transition: transform 0.3s ease-out !important;
-    z-index: 100000 !important;
-    overflow-y: auto !important;
-    -webkit-overflow-scrolling: touch !important;
-    pointer-events: auto !important;
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 310px;
+    max-width: 85vw;
+    height: 100vh;
+    background-color: #ffffff;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+    padding: 1.5rem 1.25rem 4rem;
+    box-shadow: -10px 0 40px rgba(0, 0, 0, 0.45);
+    transform: translateX(115%);
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 999999;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
   }
 
   .nav-menu.open {
-    transform: translateX(0%) !important;
+    transform: translateX(0);
   }
 
   .drawer-close-btn {
-    display: block !important;
-    width: 100% !important;
-    background-color: #fee2e2 !important;
-    color: #b91c1c !important;
-    border: 1.5px solid #f87171 !important;
-    padding: 0.85rem 1rem !important;
-    font-family: inherit !important;
-    font-size: 1rem !important;
-    font-weight: 900 !important;
-    border-radius: var(--radius-sm) !important;
-    cursor: pointer !important;
-    margin-bottom: 1.2rem !important;
-    text-align: center !important;
+    display: block;
+    width: 100%;
+    background-color: #fee2e2;
+    color: #b91c1c;
+    border: 1.5px solid #f87171;
+    padding: 0.85rem 1rem;
+    font-family: inherit;
+    font-size: 1rem;
+    font-weight: 900;
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    margin-bottom: 1.2rem;
+    text-align: center;
   }
 
   .nav-item {
-    width: 100% !important;
-    border-bottom: 1px solid #ede8e1 !important;
+    width: 100%;
+    border-bottom: 1px solid #ede8e1;
   }
 
   .nav-link {
-    padding: 1rem 0.5rem !important;
-    width: 100% !important;
-    font-size: 1.05rem !important;
-    font-weight: 800 !important;
-    display: flex !important;
-    justify-content: space-between !important;
-    align-items: center !important;
-    color: var(--text-main) !important;
-    cursor: pointer !important;
+    padding: 1rem 0.5rem;
+    width: 100%;
+    font-size: 1.05rem;
+    font-weight: 800;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: var(--text-main);
   }
 
   .dropdown-menu {
-    position: static !important;
-    display: none !important;
-    box-shadow: none !important;
-    border: none !important;
-    padding: 0.5rem 0.8rem !important;
-    background-color: #f4f0e8 !important;
-    border-radius: var(--radius-sm) !important;
-    margin-bottom: 0.75rem !important;
+    position: static;
+    display: none;
+    box-shadow: none;
+    border: none;
+    padding: 0.5rem 0.8rem;
+    background-color: #f4f0e8;
+    border-radius: var(--radius-sm);
+    margin-bottom: 0.75rem;
   }
 
   .dropdown-menu.show {
-    display: flex !important;
-    flex-direction: column !important;
+    display: flex;
+    flex-direction: column;
   }
 
   .dropdown-menu a {
-    padding: 0.85rem 0.6rem !important;
-    font-size: 0.95rem !important;
-    font-weight: 700 !important;
-    border-bottom: 1px dashed rgba(0,0,0,0.08) !important;
-    color: var(--text-main) !important;
+    padding: 0.85rem 0.6rem;
+    font-size: 0.95rem;
+    font-weight: 700;
+    border-bottom: 1px dashed rgba(0,0,0,0.08);
+    color: var(--text-main);
   }
 
   .dropdown-menu a:last-child {
-    border-bottom: none !important;
+    border-bottom: none;
   }
 
+  /* Backdrop Overlay */
   .nav-overlay {
-    position: fixed !important;
-    inset: 0 !important;
-    background: rgba(0, 0, 0, 0.6) !important;
-    z-index: 9999 !important;
-    opacity: 0 !important;
-    pointer-events: none !important;
-    transition: opacity 0.3s ease !important;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.6);
+    z-index: 999990;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
   }
 
   .nav-overlay.show {
-    opacity: 1 !important;
-    pointer-events: auto !important;
+    opacity: 1;
+    pointer-events: auto;
   }
 }
 
