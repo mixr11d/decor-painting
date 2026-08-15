@@ -1,5 +1,5 @@
 /**
- * Centralized Script & Tracking Engine (Rock-Solid Touch Nav)
+ * Centralized Script & Tracking Engine (Mobile UX & Ads Optimized)
  * Activity: Modern Paints & Gypsum Board - Riyadh
  * Client Ad Phone: 0557482300
  */
@@ -37,11 +37,10 @@
 
   document.addEventListener('DOMContentLoaded', () => {
     
-    // --- 1. Mobile Drawer Logic ---
+    // --- 1. Robust Mobile Drawer Navigation ---
     const mobileToggle = document.querySelector('.mobile-toggle');
     const navMenu = document.querySelector('.nav-menu');
     
-    // Create Backdrop Overlay
     let navOverlay = document.querySelector('.nav-overlay');
     if (!navOverlay) {
       navOverlay = document.createElement('div');
@@ -49,12 +48,11 @@
       document.body.appendChild(navOverlay);
     }
 
-    // Add Close Button inside Nav Menu
     if (navMenu && !navMenu.querySelector('.drawer-close-btn')) {
       const closeBtn = document.createElement('button');
       closeBtn.className = 'drawer-close-btn';
-      closeBtn.innerHTML = '&times; إغلاق القائمة';
-      closeBtn.setAttribute('aria-label', 'إغلاق');
+      closeBtn.innerHTML = '✖ إغلاق القائمة';
+      closeBtn.setAttribute('aria-label', 'إغلاق القائمة');
       navMenu.insertBefore(closeBtn, navMenu.firstChild);
 
       closeBtn.addEventListener('click', (e) => {
@@ -67,7 +65,7 @@
     function openNav() {
       navMenu.classList.add('open');
       navOverlay.classList.add('show');
-      document.body.style.overflow = 'hidden'; // Prevent background scroll
+      document.body.style.overflow = 'hidden';
     }
 
     function closeNav() {
@@ -93,14 +91,13 @@
       closeNav();
     });
 
-    // Prevent clicks inside the drawer from bubbling and closing it
     if (navMenu) {
       navMenu.addEventListener('click', (e) => {
         e.stopPropagation();
       });
     }
 
-    // --- 2. Touch Dropdown Logic for "خدماتنا" ---
+    // --- 2. On-Touch Dropdown Toggle for "خدماتنا" ---
     const dropdownBtns = document.querySelectorAll('.dropdown-btn');
     dropdownBtns.forEach((btn) => {
       btn.addEventListener('click', (e) => {
@@ -111,7 +108,6 @@
         
         if (menu) {
           const isOpen = menu.classList.contains('show');
-          // Close other dropdowns
           document.querySelectorAll('.dropdown-menu').forEach(m => m.classList.remove('show'));
           document.querySelectorAll('.dropdown-btn').forEach(b => b.classList.remove('open'));
           
@@ -123,7 +119,6 @@
       });
     });
 
-    // Close dropdown on outside tap on desktop
     document.addEventListener('click', () => {
       if (window.innerWidth > 991) {
         document.querySelectorAll('.dropdown-menu').forEach(m => m.classList.remove('show'));
@@ -131,7 +126,7 @@
       }
     });
 
-    // --- 3. Click Tracker for Ads ---
+    // --- 3. Ads Click Tracker ---
     document.addEventListener('click', (e) => {
       const target = e.target.closest('a');
       if (!target) return;
