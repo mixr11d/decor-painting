@@ -50,8 +50,9 @@
     </div>
   </header>
 
-  <section class="hero" style="padding: 3.5rem 0 2.5rem;">
+  <section class="hero" style="padding: 4.5rem 0 3rem; background-image: linear-gradient(135deg, rgba(27, 56, 23, 0.85) 0%, rgba(45, 90, 39, 0.82) 100%), url('./images/interior-painting_result.webp');">
     <div class="container hero-content">
+      <div class="hero-badge">📍 متواجدون في جميع أحياء الرياض</div>
       <h1 class="hero-title">تواصل معنا <span>لحجز معاينة مجانية</span></h1>
       <p class="hero-desc">يسعدنا اتصالكم المباشر أو مراسلتنا عبر الواتساب لتزويدكم بالأسعار وتحديد موعد لزيارة موقعكم في الرياض.</p>
     </div>
@@ -59,18 +60,18 @@
 
   <section class="section">
     <div class="container">
-      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-bottom: 3rem;">
-        <div style="background: var(--surface); padding: 2rem; border-radius: var(--radius-md); border: 1px solid var(--border-color); text-align: center;">
-          <div style="font-size: 2.5rem; margin-bottom: 0.5rem;">📞</div>
-          <h3 style="color: var(--primary); font-size: 1.3rem; margin-bottom: 0.5rem;">الاتصال الهاتفي المباشر</h3>
-          <p style="color: var(--text-muted); margin-bottom: 1.2rem;">استجابة فورية من المشرف الفني المختص</p>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; margin-bottom: 3rem;">
+        <div style="background: var(--surface); padding: 2.2rem 1.5rem; border-radius: var(--radius-md); border: 1px solid var(--border-color); box-shadow: var(--shadow-sm); text-align: center;">
+          <div style="font-size: 2.5rem; margin-bottom: 0.8rem;">📞</div>
+          <h3 style="color: var(--primary); font-size: 1.3rem; font-weight: 800; margin-bottom: 0.5rem;">الاتصال الهاتفي المباشر</h3>
+          <p style="color: var(--text-muted); font-size: 0.92rem; margin-bottom: 1.4rem;">استجابة فورية من المشرف الفني المعتمد</p>
           <a href="tel:0557482300" class="btn btn-call" style="width: 100%;">0557482300</a>
         </div>
 
-        <div style="background: var(--surface); padding: 2rem; border-radius: var(--radius-md); border: 1px solid var(--border-color); text-align: center;">
-          <div style="font-size: 2.5rem; margin-bottom: 0.5rem;">💬</div>
-          <h3 style="color: var(--primary); font-size: 1.3rem; margin-bottom: 0.5rem;">المحادثة عبر الواتساب</h3>
-          <p style="color: var(--text-muted); margin-bottom: 1.2rem;">أرسل صور موقعك ومقاساتك لاستلام التكلفة التقريبية</p>
+        <div style="background: var(--surface); padding: 2.2rem 1.5rem; border-radius: var(--radius-md); border: 1px solid var(--border-color); box-shadow: var(--shadow-sm); text-align: center;">
+          <div style="font-size: 2.5rem; margin-bottom: 0.8rem;">💬</div>
+          <h3 style="color: var(--primary); font-size: 1.3rem; font-weight: 800; margin-bottom: 0.5rem;">المحادثة عبر الواتساب</h3>
+          <p style="color: var(--text-muted); font-size: 0.92rem; margin-bottom: 1.4rem;">أرسل صور ومقاسات منزلك لاستلام السعر فوراً</p>
           <a href="https://wa.me/966557482300" class="btn btn-whatsapp" style="width: 100%;">مراسلة واتساب فورية</a>
         </div>
       </div>
@@ -78,7 +79,8 @@
       <!-- Lead Form -->
       <div class="form-section">
         <div class="section-title-wrap" style="margin-bottom: 1.5rem;">
-          <h2 class="section-title" style="font-size: 1.7rem;">نموذج التواصل السريع</h2>
+          <h2 class="section-title" style="font-size: 1.7rem;">نموذج التواصل وطلب المعاينة</h2>
+          <p class="section-subtitle">املأ بياناتك وسنعاود الاتصال بك خلال 15 دقيقة</p>
         </div>
         <form id="inspectionForm" class="lead-form">
           <div class="form-group">
@@ -91,26 +93,29 @@
           </div>
           <div class="form-group full-width">
             <label class="form-label" for="formDistrict">الحي بالرياض:</label>
-            <input type="text" id="formDistrict" class="form-control" placeholder="مثال: الملقا، النرجس..." required>
+            <input type="text" id="formDistrict" class="form-control" placeholder="مثال: الملقا، النرجس، الياسمين..." required>
           </div>
           <div class="form-group full-width">
             <label class="form-label" for="formService">نوع الخدمة المطلوبة:</label>
             <select id="formService" class="form-control">
-              <option value="دهانات داخلية">دهانات داخلية</option>
-              <option value="دهانات خارجية وبروفايل">دهانات خارجية وبروفايل</option>
-              <option value="أعمال جبس بورد">أعمال جبس بورد</option>
-              <option value="بديل خشب ورخام">بديل خشب ورخام</option>
-              <option value="ديكور شاشات">ديكور شاشات</option>
-              <option value="فوم واستيل">فوم واستيل</option>
-              <option value="دهان أبواب">دهان أبواب</option>
+              <option value="الدهانات الداخلية الحديثة">الدهانات الداخلية الحديثة</option>
+              <option value="الدهانات الخارجية والبروفايل">الدهانات الخارجية والبروفايل</option>
+              <option value="أسقف وديكورات جبس بورد">أسقف وديكورات جبس بورد</option>
+              <option value="قواطع وجدران جبسية">قواطع وجدران جبسية</option>
+              <option value="ديكورات شاشات وتلفزيون">ديكورات شاشات وتلفزيون</option>
+              <option value="تركيب بديل الخشب">تركيب بديل الخشب</option>
+              <option value="تركيب بديل الرخام">تركيب بديل الرخام</option>
+              <option value="تركيب بديل الشيبورد">تركيب بديل الشيبورد</option>
+              <option value="ديكورات فوم واستيل">ديكورات فوم واستيل</option>
+              <option value="دهان وترميم أبواب">دهان وترميم أبواب</option>
             </select>
           </div>
           <div class="form-group full-width">
-            <label class="form-label" for="formNotes">تفاصيل الاستفسار:</label>
-            <textarea id="formNotes" class="form-control" rows="3" placeholder="اكتب استفسارك هنا..."></textarea>
+            <label class="form-label" for="formNotes">تفاصيل إضافية عن العمل:</label>
+            <textarea id="formNotes" class="form-control" rows="3" placeholder="اكتب أي ملاحظات أو المساحة التقريبية..."></textarea>
           </div>
           <div class="form-group full-width">
-            <button type="submit" class="btn btn-primary" style="width:100%; font-size:1.1rem;">إرسال الاستفسار الآن</button>
+            <button type="submit" class="btn btn-primary" style="width:100%; font-size:1.1rem; padding: 1rem;">إرسال وحجز موعد المعاينة المجانية</button>
           </div>
         </form>
       </div>
