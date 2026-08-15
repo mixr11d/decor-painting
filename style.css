@@ -1,6 +1,5 @@
 /* ==========================================================================
-   Eco-Warm Wood Theme - Direct Touch UI (Zero-Overlay Bug-Free)
-   Activity: Modern Paints & Gypsum Board Riyadh | Phone: 0557482300
+   Eco-Warm Wood Theme - Bulletproof Centralized Styling
    ========================================================================== */
 
 :root {
@@ -76,7 +75,7 @@ ul {
   padding-right: 1.25rem;
 }
 
-/* ================= Promo Bar ================= */
+/* Promo Bar */
 .promo-bar {
   background: linear-gradient(90deg, var(--wood-dark), var(--wood), var(--wood-dark));
   color: #ffffff;
@@ -99,11 +98,9 @@ ul {
   animation: shine 3.5s infinite;
 }
 
-@keyframes shine {
-  100% { left: 150%; }
-}
+@keyframes shine { 100% { left: 150%; } }
 
-/* ================= Header ================= */
+/* Header */
 .site-header {
   background-color: var(--surface);
   box-shadow: var(--shadow-sm);
@@ -146,7 +143,6 @@ ul {
   font-weight: 600;
 }
 
-/* Desktop Nav */
 .nav-menu {
   display: flex;
   align-items: center;
@@ -230,7 +226,7 @@ ul {
   padding: 0.4rem;
 }
 
-/* ================= Hero Section ================= */
+/* Hero Section */
 .hero {
   position: relative;
   background: linear-gradient(135deg, rgba(27, 56, 23, 0.85) 0%, rgba(45, 90, 39, 0.82) 100%), url('./images/interior-painting_result.webp') center/cover no-repeat;
@@ -266,9 +262,7 @@ ul {
   color: #ffffff;
 }
 
-.hero-title span {
-  color: #ffd978;
-}
+.hero-title span { color: #ffd978; }
 
 .hero-desc {
   font-size: clamp(0.98rem, 2vw, 1.18rem);
@@ -297,10 +291,6 @@ ul {
   cursor: pointer;
   border: none;
   transition: var(--transition);
-}
-
-.btn svg {
-  flex-shrink: 0;
 }
 
 .btn-primary {
@@ -350,10 +340,8 @@ ul {
   gap: 0.4rem;
 }
 
-/* ================= Section Base ================= */
-.section {
-  padding: 4rem 0;
-}
+/* Sections & Grid */
+.section { padding: 4rem 0; }
 
 .section-title-wrap {
   text-align: center;
@@ -384,7 +372,6 @@ ul {
   color: var(--text-muted);
 }
 
-/* ================= Services Grid ================= */
 .services-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
@@ -421,9 +408,7 @@ ul {
   transition: transform 0.5s ease;
 }
 
-.service-card:hover .service-card-img img {
-  transform: scale(1.06);
-}
+.service-card:hover .service-card-img img { transform: scale(1.06); }
 
 .service-card-body {
   padding: 1.25rem;
@@ -456,7 +441,7 @@ ul {
   font-size: 0.92rem;
 }
 
-/* ================= Gallery Grid ================= */
+/* Gallery Grid */
 .gallery-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -485,11 +470,9 @@ ul {
   transition: transform 0.4s ease;
 }
 
-.gallery-item:hover img {
-  transform: scale(1.05);
-}
+.gallery-item:hover img { transform: scale(1.05); }
 
-/* ================= Interactive Lead Form ================= */
+/* Lead Form */
 .form-section {
   background: linear-gradient(180deg, #f3ece0 0%, var(--bg-sand) 100%);
   border-radius: var(--radius-lg);
@@ -507,9 +490,7 @@ ul {
 }
 
 @media (max-width: 640px) {
-  .lead-form {
-    grid-template-columns: 1fr;
-  }
+  .lead-form { grid-template-columns: 1fr; }
 }
 
 .form-group {
@@ -518,9 +499,7 @@ ul {
   gap: 0.35rem;
 }
 
-.form-group.full-width {
-  grid-column: 1 / -1;
-}
+.form-group.full-width { grid-column: 1 / -1; }
 
 .form-label {
   font-size: 0.88rem;
@@ -546,7 +525,7 @@ ul {
   box-shadow: 0 0 0 3px rgba(45, 90, 39, 0.15);
 }
 
-/* ================= Features Grid ================= */
+/* Features Grid */
 .features-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
@@ -592,7 +571,7 @@ ul {
   color: var(--text-muted);
 }
 
-/* ================= Floating Action Buttons ================= */
+/* Centralized Floating Buttons with Perfect HD SVGs */
 .fab-container-right {
   position: fixed;
   bottom: 1.5rem;
@@ -600,7 +579,7 @@ ul {
   display: flex;
   flex-direction: column;
   gap: 0.85rem;
-  z-index: 999;
+  z-index: 9999;
 }
 
 .fab-btn {
@@ -619,51 +598,31 @@ ul {
 
 .fab-btn svg {
   display: block;
-  filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.2));
+  filter: drop-shadow(0 1px 2px rgba(0,0,0,0.2));
 }
 
-.fab-call {
-  background: linear-gradient(135deg, #1d72fe, #0b55ca);
-}
+.fab-call { background: linear-gradient(135deg, #1d72fe, #0b55ca); }
+.fab-whatsapp { background: linear-gradient(135deg, #2ae06c, #1fa84f); }
 
-.fab-whatsapp {
-  background: linear-gradient(135deg, #2ae06c, #1fa84f);
-}
-
-/* Intermittent Pulse Animation */
 .fab-shake {
   animation: intermittentPulseShake 4s ease-in-out infinite;
 }
 
 @keyframes intermittentPulseShake {
-  0%, 75%, 100% {
-    transform: scale(1) rotate(0deg);
-  }
-  78% {
-    transform: scale(1.12) rotate(-10deg);
-  }
-  82% {
-    transform: scale(1.12) rotate(10deg);
-  }
-  86% {
-    transform: scale(1.1) rotate(-8deg);
-  }
-  90% {
-    transform: scale(1.1) rotate(8deg);
-  }
-  94% {
-    transform: scale(1.05) rotate(-4deg);
-  }
-  98% {
-    transform: scale(1.02) rotate(4deg);
-  }
+  0%, 75%, 100% { transform: scale(1) rotate(0deg); }
+  78% { transform: scale(1.12) rotate(-10deg); }
+  82% { transform: scale(1.12) rotate(10deg); }
+  86% { transform: scale(1.1) rotate(-8deg); }
+  90% { transform: scale(1.1) rotate(8deg); }
+  94% { transform: scale(1.05) rotate(-4deg); }
+  98% { transform: scale(1.02) rotate(4deg); }
 }
 
 .fab-container-left {
   position: fixed;
   bottom: 1.5rem;
   left: 1.25rem;
-  z-index: 999;
+  z-index: 9999;
 }
 
 .fab-scroll-top {
@@ -681,11 +640,9 @@ ul {
   opacity: 0.9;
 }
 
-.fab-scroll-top.visible {
-  display: flex;
-}
+.fab-scroll-top.visible { display: flex; }
 
-/* ================= Unified Rich Footer ================= */
+/* Unified Footer */
 .site-footer {
   background-color: #152214;
   color: #e5ece4;
@@ -726,20 +683,9 @@ ul {
   background-color: var(--wood);
 }
 
-.footer-links li {
-  margin-bottom: 0.65rem;
-}
-
-.footer-links a {
-  font-size: 0.92rem;
-  color: #cbd8cb;
-  display: inline-block;
-}
-
-.footer-links a:hover {
-  color: #ffd978;
-  transform: translateX(-4px);
-}
+.footer-links li { margin-bottom: 0.65rem; }
+.footer-links a { font-size: 0.92rem; color: #cbd8cb; display: inline-block; }
+.footer-links a:hover { color: #ffd978; transform: translateX(-4px); }
 
 .neighborhoods-section {
   background-color: rgba(255, 255, 255, 0.05);
@@ -786,16 +732,11 @@ ul {
   font-weight: 800;
 }
 
-.developer-credit:hover {
-  text-decoration: underline;
-  color: #ffffff;
-}
+.developer-credit:hover { text-decoration: underline; color: #ffffff; }
 
-/* ================= Mobile Direct Sidebar (100% Touch Responsive) ================= */
+/* Mobile Direct Sidebar */
 @media (max-width: 991px) {
-  .mobile-toggle {
-    display: block;
-  }
+  .mobile-toggle { display: block; }
 
   .nav-menu {
     display: none;
@@ -816,9 +757,7 @@ ul {
     -webkit-overflow-scrolling: touch;
   }
 
-  .nav-menu.open {
-    display: flex !important;
-  }
+  .nav-menu.open { display: flex !important; }
 
   .drawer-close-btn {
     display: block;
@@ -877,14 +816,7 @@ ul {
     color: var(--text-main);
   }
 
-  .dropdown-menu a:last-child {
-    border-bottom: none;
-  }
-
-  /* Completely removed blocking overlay to guarantee 100% touch reliability */
-  .nav-overlay {
-    display: none !important;
-  }
+  .dropdown-menu a:last-child { border-bottom: none; }
 }
 
 @keyframes fadeInDown {
