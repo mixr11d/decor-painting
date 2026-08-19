@@ -14,10 +14,10 @@
   const CLIENT_INT_PHONE = '966557482300';
   
   // Google Ads IDs (ضع معرفات حملتك هنا متى شئت)
-  const GOOGLE_ADS_ID = ''; // مثال: 'AW-123456789'
-  const CONVERSION_LABEL_CALL = ''; 
-  const CONVERSION_LABEL_WHATSAPP = ''; 
-  const CONVERSION_LABEL_FORM = ''; 
+  const GOOGLE_ADS_ID = 'AW-18398762505'; // مثال: 'AW-123456789'
+  const CONVERSION_LABEL_CALL = 'hlUXCObsp-QcEImsm8VE'; 
+  const CONVERSION_LABEL_WHATSAPP = 'eShNCOnsp-QcEImsm8VE'; 
+  const CONVERSION_LABEL_FORM = 'EdZZCOnQquQcEImsm8VE'; 
 
   // حقن مكتبة Google Tag تلقائياً
   if (GOOGLE_ADS_ID && GOOGLE_ADS_ID.trim() !== '') {
