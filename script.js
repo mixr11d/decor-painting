@@ -9,10 +9,10 @@ const CLIENT_PHONE = '0557482300';
 const CLIENT_INT_PHONE = '966557482300';
 const DEV_PHONE_EXCLUDED = '966578539687';
 
-const GOOGLE_ADS_ID = 'AW-18398762505'; 
-const CONVERSION_LABEL_CALL = 'hlUXCObsp-QcEImsm8VE'; 
-const CONVERSION_LABEL_WHATSAPP = 'eShNCOnsp-QcEImsm8VE'; 
-const CONVERSION_LABEL_FORM = 'EdZZCOnQquQcEImsm8VE'; 
+const GOOGLE_ADS_ID = 'AW-18482549868'; 
+const CONVERSION_LABEL_CALL = '350pCL7LiIwdEOyole1E'; 
+const CONVERSION_LABEL_WHATSAPP = 'UQWcCMHLiIwdEOyole1E'; 
+const CONVERSION_LABEL_FORM = 'QPgDCJmYiYwdEOyole1E'; 
 
 // 2. تهيئة تتبع إعلانات Google Ads المباشر
 window.dataLayer = window.dataLayer || [];
